@@ -44,23 +44,26 @@ Before you start, ensure that you have the following dependencies installed:
 4. PostgreSQL:
    Install the PostgreSQL client library for Node.js:
    ```bash
-  npm install pg
-  ```
-5. Express:
-   Express is a web framework used to handle HTTP requests and responses. To install it:
-     ```bash
-  npm install express
-  ```
+   npm install pg
+   ```
+5. Express: Express is a web framework used to handle HTTP requests and responses. To install it:
+    ```bash
+   npm install express
+   ```
+
 6. CORS:
    CORS (Cross-Origin Resource Sharing) is used to allow or restrict resources on the backend server to be requested from different domains. To install it:
-  ```bash
-  npm install cors
-  ```
+
+    ```bash
+    npm install cors
+   ```
+
 7. Nodemon:
    Nodemon automatically restarts your application whenever file changes are detected. Install it globally for development use:
-  ```bash
-  npm install nodemon
- ```
+
+    ```bash
+    npm install nodemon
+   ```
 
 # Installation
 
