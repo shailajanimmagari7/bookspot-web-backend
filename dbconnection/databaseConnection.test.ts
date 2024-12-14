@@ -4,6 +4,8 @@ import { Sequelize } from "sequelize";
 describe("verifyDatabaseConnection", () => {
   it("should log success message when the connection is successful", async () => {
     console.log = jest.fn();
+    const mockAuthenticate = jest.fn().mockResolvedValueOnce(undefined);
+    jest.spyOn(Sequelize.prototype, 'authenticate').mockImplementation(mockAuthenticate);
     await verifyDatabaseConnection();
     expect(console.log).toHaveBeenCalledWith(
       "Connection has been established successfully."
@@ -21,6 +23,8 @@ describe("verifyDatabaseConnection", () => {
       }
     );
     console.error = jest.fn();
+    const mockAuthenticate = jest.fn().mockRejectedValueOnce(new Error('ConnectionRefusedError'));
+    jest.spyOn(Sequelize.prototype, 'authenticate').mockImplementation(mockAuthenticate);
     try {
       await sequelize.authenticate();
     } catch (error) {
