@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - setup-postgress-server
+      - create-user-model-routes
 
 jobs:
   build:
