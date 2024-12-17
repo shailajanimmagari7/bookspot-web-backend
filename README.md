@@ -19,7 +19,7 @@ This is the initial setup for the Bookspot Backend of the web application, provi
 - PostgresSql
 - Express
 - Jest
-
+- Sequelize (ORM for PostgreSQL)
 # Requirements
 
 Before you start, ensure that you have the following dependencies installed:
@@ -64,7 +64,10 @@ Before you start, ensure that you have the following dependencies installed:
     ```bash
     npm install nodemon
    ```
-
+8. Sequelize: Sequelize is an ORM that simplifies interacting with PostgreSQL.You can follow for Connecting to a database and Testing the connection in documentation. Here is the [https://sequelize.org/docs/v6/getting-started/]
+     ```bash
+    npm install --save sequelize
+   ```
 # Installation
 
 1. Clone the Repository
