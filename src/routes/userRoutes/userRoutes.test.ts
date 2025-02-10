@@ -2,7 +2,7 @@ import request from 'supertest';
 import express from 'express';
 import  sequelize  from '../../models/userModel';
 import UserRouter from './userRoutes';
-import { UserModel } from '../../models/userModel';
+import  User  from '../../models/userModel';
 
 const app = express();
 app.use(express.json());
@@ -13,7 +13,7 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
-  await UserModel.destroy({ where: {} });
+  await User.destroy({ where: {} });
 });
 
 afterAll(async () => {
