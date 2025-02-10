@@ -1,36 +1,44 @@
-import { DataTypes, Model, Optional } from "sequelize";
+import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../dbconnection/databaseConnection";
 
 
-export  interface UserAttributes {
-  id: number;
-  username: string;
-  password: string;
-  emailAddress: string;
+class User extends Model {
+  static close() {
+    throw new Error('Method not implemented.');
+  }
+  public id!: number;
+  public username!: string;
+  public email!: string;
+  public password!: string;
+  public  emailAddress!: string;
 }
-interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
-export const UserModel = sequelize.define<Model<UserAttributes, UserCreationAttributes>>(
-  "User",  {
+
+User.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  emailAddress: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      isEmail: true,  
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    emailAddress: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
-});
-export default sequelize;
+  {
+    sequelize,
+    tableName: "users",
+  }
+);
+
+export default User;
