@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  webapp:
+    container_name: bookspot
+    image: shailajanimmagari/backend-bookspot-app:v1
+    build: .
+    ports:
+       - 5432:5432
+    environment:
+      DATABASE_URL: postgres://shailaja:shailaja123/shailajapg  
+    depends_on:
+      - db  
+    networks:
+      - app_network
+  db:
+    image:  postgres 
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: shailaja
+      POSTGRES_PASSWORD: shailaja123
+      POSTGRES_DB: shailajapg
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data  
+    ports:
+      - "7003:7003"  
+    networks:
+      - app_network
+networks:
+  app_network:
+    driver: bridge
+  
